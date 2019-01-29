@@ -19,6 +19,14 @@ class Enemy {
         // which will ensure the game runs at the same speed for
         // all computers.
 
+        this.x = this.x + 100 * dt; // change current x position
+
+        /**
+         * calls render method to render the enemy in the newly
+         * updated x position
+         */
+        this.render(); 
+
     }
 
     // Draw the enemy on the screen, required method for game
@@ -70,7 +78,8 @@ class Player {
 // Place the player object in a variable called player
 const enemyOne = new Enemy(60, 30);
 const enemyTwo = new Enemy(60, 100);
-const allEnemies = [enemyOne, enemyTwo];
+const enemyThree = new Enemy(60, 200);
+const allEnemies = [enemyThree];
 
 const player = new Player;
 
