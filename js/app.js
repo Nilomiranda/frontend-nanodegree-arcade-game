@@ -59,7 +59,8 @@ class Enemy {
 
         // checks if position of enemy and player matches
         if (xColision && selfPosY === enemyPosY) {
-            console.log('colided!');
+            player.x = 0;
+            player.y = 404;
         }
     }
 
