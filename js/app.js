@@ -19,14 +19,18 @@ class Enemy {
         // which will ensure the game runs at the same speed for
         // all computers.
 
-        this.x = this.x + 100 * dt; // change current x position
+        this.x = this.x + 500 * dt; // change current x position
+
+        // checks if position is already off the canvas
+        if (this.x > 505) {
+            this.x = -100; // sets the enemy in the canva's beginning 
+        }
 
         /**
          * calls render method to render the enemy in the newly
          * updated x position
          */
         this.render(); 
-
     }
 
     // Draw the enemy on the screen, required method for game
