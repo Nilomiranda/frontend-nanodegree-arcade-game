@@ -1,8 +1,6 @@
 // Enemies our player must avoid
 
 class Enemy {
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -12,10 +10,6 @@ class Enemy {
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-        // You should multiply any movement by the dt parameter
-        // which will ensure the game runs at the same speed for
-        // all computers.
-
         this.x = this.x + 100 * dt; // change current x position
 
         // checks if position is already off the canvas
@@ -74,10 +68,6 @@ class Enemy {
     }
 }
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
 class Player {
     constructor() {
         this.sprite = 'images/char-boy.png';
@@ -123,10 +113,6 @@ class Player {
     }
 }
 
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 const enemyOne = new Enemy(60, 30);
 const enemyTwo = new Enemy(60, 100);
 const enemyThree = new Enemy(60, 233);
@@ -134,11 +120,6 @@ const allEnemies = [enemyThree];
 
 const player = new Player;
 
-
-
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
