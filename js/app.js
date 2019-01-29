@@ -35,7 +35,7 @@ class Player {
     constructor() {
         this.sprite = 'images/char-boy.png';
         this.x = 0;
-        this.y = 50.5;
+        this.y = 404;
     }
 
     update(dt) {
