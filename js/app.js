@@ -59,6 +59,10 @@ class Enemy {
 
         // checks if position of enemy and player matches
         if (xColision && selfPosY === enemyPosY) {
+            /**
+             * if colision happens then player is set to its
+             * initial position and game begins again
+             */
             player.x = 0;
             player.y = 404;
         }
@@ -82,7 +86,7 @@ class Player {
     }
 
     update(dt) {
-
+        this.checkVictory();
     }
 
     handleInput(pressedKey) {
@@ -103,6 +107,14 @@ class Player {
                 this.x += 101;
                 console.log(this.x);
                 break;
+        }
+    }
+
+    checkVictory() {
+        // checks if player reached water -> VICTORY 🙌🙌🙌
+        if (this.y === -23.5) {
+            this.x = 0;
+            this.y = 404;
         }
     }
 
