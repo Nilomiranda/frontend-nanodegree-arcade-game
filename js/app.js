@@ -121,8 +121,9 @@ class Player {
         if (this.victory) {
             ctx.drawImage(Resources.get('images/Victory.png'), 60, 233);
             setTimeout(() => {
-                ctx.drawImage(Resources.get('images/Victory.png'), -1000, 233);    
-            }, 3000);
+                this.victory = false;
+                this.render();    
+            }, 1500);
         }
     }
 }
