@@ -1,6 +1,6 @@
 // Enemies our player must avoid
 
-class Enemy {
+class Enemy {   
     constructor(x, y, movSpeed) {
         this.x = x;
         this.y = y;
