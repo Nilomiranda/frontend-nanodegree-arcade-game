@@ -2,19 +2,24 @@
 
 ## Table of Contents
 
-- [Instructions](#instructions)
-- [Contributing](#contributing)
+- [Running](#running)
+- [Playing](#playing)
 
-## Instructions
+## Running
+To run the game, just download the ZIP file or clone the project in your computer.
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+After that, open `index.html` file in your browser and your game should render.
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+## Playing
+To control your character you just need to use the arrow keys in your keyboard
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+- Arrow left: moves your character to the left
+- Arrow right: moves your character to the right
+- Arrow up: moves your character up
+- Arrow down: moves your character down
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+The game is really simple. All you have to do is move your character until you reach
+the water, but be careful! There are enemies crossing the stone road and you *must* avoid them.
 
-## Contributing
+If the enemy hits you, you'll start all over again.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
