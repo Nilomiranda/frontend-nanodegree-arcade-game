@@ -1,16 +1,17 @@
 // Enemies our player must avoid
 
 class Enemy {
-    constructor(x, y) {
+    constructor(x, y, movSpeed) {
         this.x = x;
         this.y = y;
         this.sprite = 'images/enemy-bug.png';
+        this.movSpeed = movSpeed;
     }
 
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-        this.x = this.x + 100 * dt; // change current x position
+        this.x = this.x + this.movSpeed * dt; // change current x position
 
         // checks if position is already off the canvas
         if (this.x > 505) {
@@ -74,10 +75,6 @@ class Player {
         this.x = 0; // initial horizontal position
         this.y = 404; // initial vertical position
         this.victory = false; // victory 'state'
-        this.limitLeft = 0;
-        this.limitRight = 404;
-        this.limitUp = -23.5;
-        this.limitDown = 404;
     }
 
     update(dt) {
@@ -89,26 +86,18 @@ class Player {
             case 'up':
                 this.y -= 85.5;
                 this.checkLimits();
-                // console.log(this.y);
-                // console.log(this.x);
                 break;
             case 'down': 
                 this.y += 85.5;
                 this.checkLimits();
-                // console.log(this.y);
-                // console.log(this.x);
                 break;
             case 'left':
                 this.x -= 101;
                 this.checkLimits();
-                // console.log(this.y);
-                // console.log(this.x);
                 break;
             case 'right':
                 this.x += 101;
                 this.checkLimits();
-                // console.log(this.y);
-                // console.log(this.x);
                 break;
         }
     }
@@ -167,10 +156,26 @@ class Player {
     }
 }
 
-const enemyOne = new Enemy(60, 30);
-const enemyTwo = new Enemy(60, 100);
-const enemyThree = new Enemy(60, 233);
-const allEnemies = [enemyThree];
+// first row enemies
+const enemyOne = new Enemy(-150, 62, 200);
+const enemyFour = new Enemy(-300, 62, 120);
+
+// second row enemies
+const enemyTwo = new Enemy(-150, 147.5, 70);
+const enemyFive = new Enemy(-200, 147.5, 85);
+
+// third row enemies
+const enemyThree = new Enemy(-150, 233, 100);
+const enemySix = new Enemy(-120, 233, 200);
+
+// full list of enemies
+const allEnemies = [enemyOne,
+    enemyTwo,
+    enemyThree,
+    enemyFour,
+    enemyFive,
+    enemySix,
+];
 
 const player = new Player;
 
