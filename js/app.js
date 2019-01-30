@@ -28,6 +28,9 @@ class Enemy {
         this.render(); 
     }
 
+    /**
+     * @description Checks if enemy has collided with the player
+     */
     checkColision() {
         const selfPosX = this.x;
         const selfPosY = this.y;
