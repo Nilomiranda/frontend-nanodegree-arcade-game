@@ -71,9 +71,13 @@ class Enemy {
 class Player {
     constructor() {
         this.sprite = 'images/char-boy.png';
-        this.x = 0;
-        this.y = 404;
-        this.victory = false;
+        this.x = 0; // initial horizontal position
+        this.y = 404; // initial vertical position
+        this.victory = false; // victory 'state'
+        this.limitLeft = 0;
+        this.limitRight = 404;
+        this.limitUp = -23.5;
+        this.limitDown = 404;
     }
 
     update(dt) {
@@ -84,25 +88,57 @@ class Player {
         switch (pressedKey) {
             case 'up':
                 this.y -= 85.5;
-                console.log(this.y);
-                console.log(this.x);
+                this.checkLimits();
+                // console.log(this.y);
+                // console.log(this.x);
                 break;
             case 'down': 
                 this.y += 85.5;
-                console.log(this.y);
-                console.log(this.x);
+                this.checkLimits();
+                // console.log(this.y);
+                // console.log(this.x);
                 break;
             case 'left':
                 this.x -= 101;
-                console.log(this.y);
-                console.log(this.x);
+                this.checkLimits();
+                // console.log(this.y);
+                // console.log(this.x);
                 break;
             case 'right':
                 this.x += 101;
-                console.log(this.y);
-                console.log(this.x);
+                this.checkLimits();
+                // console.log(this.y);
+                // console.log(this.x);
                 break;
         }
+    }
+
+    checkLimits() {
+        /**
+         * this is checking if the player is going beyond
+         * the canvas limits
+         */
+        
+        // checking left limit
+        if (this.x < 0) {
+            this.x = 0;
+        }
+
+        // check right limit
+        if (this.x > 404) {
+            this.x = 404;
+        }
+
+        // check up limit
+        if (this.y < -23.5) {
+            this.y = -23.5;
+        }
+
+        // check down limit
+        if (this.y > 404) {
+            this.y = 404;
+        }
+        
     }
 
     checkVictory() {
@@ -119,10 +155,13 @@ class Player {
         
         // checks if player won the match
         if (this.victory) {
+            // show "You won message"
             ctx.drawImage(Resources.get('images/Victory.png'), 60, 233);
+            
+            //wait 1.5 seconds before clearing the message
             setTimeout(() => {
                 this.victory = false;
-                this.render();    
+                this.render(); // re-renders the whole image, without the victory msg    
             }, 1500);
         }
     }
