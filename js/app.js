@@ -73,6 +73,7 @@ class Player {
         this.sprite = 'images/char-boy.png';
         this.x = 0;
         this.y = 404;
+        this.victory = false;
     }
 
     update(dt) {
@@ -84,17 +85,21 @@ class Player {
             case 'up':
                 this.y -= 85.5;
                 console.log(this.y);
+                console.log(this.x);
                 break;
             case 'down': 
                 this.y += 85.5;
                 console.log(this.y);
+                console.log(this.x);
                 break;
             case 'left':
                 this.x -= 101;
+                console.log(this.y);
                 console.log(this.x);
                 break;
             case 'right':
                 this.x += 101;
+                console.log(this.y);
                 console.log(this.x);
                 break;
         }
@@ -105,11 +110,20 @@ class Player {
         if (this.y === -23.5) {
             this.x = 0;
             this.y = 404;
+            this.victory = true;
         }
     }
-
+    
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        
+        // checks if player won the match
+        if (this.victory) {
+            ctx.drawImage(Resources.get('images/Victory.png'), 60, 233);
+            setTimeout(() => {
+                ctx.drawImage(Resources.get('images/Victory.png'), -1000, 233);    
+            }, 3000);
+        }
     }
 }
 
