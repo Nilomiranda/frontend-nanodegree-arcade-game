@@ -44,7 +44,7 @@ class Enemy {
          */
         const xMinimumColisionRange = selfPosX - 1;
         const xMaximumColisionRange = selfPosX + 1;
-
+    
         /**
          * checks if a xColision occurs by checking if the 
          * player's x position is already in the enemy's X range
@@ -180,7 +180,7 @@ const allEnemies = [enemyOne,
     enemySix,
 ];
 
-const player = new Player;
+const player = new Player();
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
