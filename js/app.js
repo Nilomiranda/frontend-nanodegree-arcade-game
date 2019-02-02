@@ -10,7 +10,7 @@ class Enemy {
 
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
-    update(dt) {
+    update(dt, player) {
         this.x = this.x + this.movSpeed * dt; // change current x position
 
         // checks if position is already off the canvas
@@ -18,7 +18,7 @@ class Enemy {
             this.x = -100; // sets the enemy in the canva's beginning 
         }
 
-        this.checkColision(); // checks if enemy colided with player
+        this.checkColision(player); // checks if enemy colided with player
 
         /**
          * calls render method to render the enemy in the newly
@@ -31,7 +31,7 @@ class Enemy {
     /**
      * @description Checks if enemy has collided with the player
      */
-    checkColision() {
+    checkColision(player) {
         const selfPosX = this.x;
         const selfPosY = this.y;
 
@@ -42,8 +42,8 @@ class Enemy {
          * these two variables set a range for the colision
          * with the enemy
          */
-        const xMinimumColisionRange = selfPosX - 30;
-        const xMaximumColisionRange = selfPosX + 30;
+        const xMinimumColisionRange = selfPosX - 50;
+        const xMaximumColisionRange = selfPosX + 50;
     
         /**
          * checks if a xColision occurs by checking if the 
