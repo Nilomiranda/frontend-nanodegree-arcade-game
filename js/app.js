@@ -42,8 +42,8 @@ class Enemy {
          * these two variables set a range for the colision
          * with the enemy
          */
-        const xMinimumColisionRange = selfPosX - 1;
-        const xMaximumColisionRange = selfPosX + 1;
+        const xMinimumColisionRange = selfPosX - 30;
+        const xMaximumColisionRange = selfPosX + 30;
     
         /**
          * checks if a xColision occurs by checking if the 
